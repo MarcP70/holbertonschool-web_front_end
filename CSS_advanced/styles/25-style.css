@@ -90,9 +90,6 @@ a:active .button:hover {
     text-decoration: var(--button-hover-text-decoration);
     background-color: var(--button-hover-background);
 }
-[data-section-theme="dark"] {
-    --button-color: var(--color-white);
-}
 .visually-hidden {
     display: none;
 }
@@ -116,6 +113,7 @@ a:active .button:hover {
     --text-color: var(--color-white);
     --section-title-color: var(--color-white);
     background-color: var(--color-black);
+    --button-color: var(--color-white);
 }
 .section-tagline {
     color: var(--color-primary);
