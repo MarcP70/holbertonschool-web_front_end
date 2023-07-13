@@ -77,7 +77,7 @@ a:hover {
 a:active {
     background-color: var(--color-light-grey);
 }
-a:active .button {
+.button {
     display: var(--button-display);
     padding: var(--button-padding);
     border: var(--button-border);
@@ -85,7 +85,7 @@ a:active .button {
     color: var(--button-color);
     text-decoration: var(--button-text-decoration);
 }
-a:active .button:hover {
+.button:hover {
     color: var(--button-hover-color);
     text-decoration: var(--button-hover-text-decoration);
     background-color: var(--button-hover-background);
