@@ -1,0 +1,487 @@
+@import url(normalize.css);
+
+/* Variables */
+
+:root {
+  --color-primary: #d73953; /* Couleur principale */
+  --color-black: #090909; /* Couleur noire */
+  --color-white: #ffffff; /* Couleur blanche */
+  --color-light-grey: #f3f3f3; /* Couleur gris clair */
+  --color-dark-grey: #353535; /* Couleur gris foncé */
+
+  /* Texte */
+  --text-color: var(--color-black); /* Couleur du texte */
+  --font-family-base: "Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif"; /* Police de base */
+  --font-family-title: "Raleway, Helvetica Neue, Helvetica, Arial, sans-serif"; /* Police des titres */
+  --font-size-small: 1.2rem; /* Taille de police petite */
+  --font-size-medium: 1.6rem; /* Taille de police moyenne */
+  --font-size-large: 1.8rem; /* Taille de police grande */
+  --font-size-x-large: 2.3rem; /* Taille de police très grande */
+  --font-size-xx-large: 4.8rem; /* Taille de police extrêmement grande */
+  --font-weight-regular: 400; /* Poids de police normal */
+  --font-weight-bold: 700; /* Poids de police gras */
+  --line-height-small: 1.2; /* Hauteur de ligne petite */
+  --line-height-base: 1.5; /* Hauteur de ligne de base */
+  --line-height-big: 1.8; /* Hauteur de ligne grande */
+
+  /* Sections */
+  --section-header-align: center; /* Alignement du titre de section */
+  --section-tagline-transform: uppercase; /* Transformation du texte du tagline de section en majuscules */
+  --section-title-margin: 0; /* Marge du titre de section */
+  --section-title-color: var(--color-black); /* Couleur du titre de section */
+  --section-padding: 5rem 0; /* Remplissage de la section */
+  --section-header-padding: 0 0 3rem; /* Remplissage de l'en-tête de la section */
+  --section-body-padding: 0 0 3rem; /* Remplissage du corps de la section */
+  --section-footer-padding: 3rem 0 0; /* Remplissage du pied de page de la section */
+  --section-footer-align: center; /* Alignement du pied de page de la section */
+
+  /* Boutons */
+  --button-display: inline-block; /* Affichage du bouton */
+  --button-padding: 1.5rem 3rem; /* Remplissage du bouton */
+  --button-border: 0.2rem solid var(--color-primary); /* Bordure du bouton */
+  --button-color: var(--color-black); /* Couleur du texte du bouton */
+  --button-text-decoration: none; /* Décoration du texte du bouton */
+  --button-font-size: var(--font-size-large); /* Taille de police du bouton */
+  --button-hover-color: var(--color-white); /* Couleur du texte du bouton au survol de la souris */
+  --button-hover-text-decoration: none; /* Décoration du texte du bouton au survol de la souris */
+  --button-hover-background: var(--color-primary); /* Couleur de fond du bouton au survol de la souris */
+
+  /* En-tête */
+  --header-padding: 4rem 0 0; /* Remplissage de l'en-tête */
+  --header-logo-position: relative; /* Position du logo de l'en-tête */
+  --header-logo-link-display: inline-block; /* Affichage du lien du logo de l'en-tête */
+  --header-logo-link-position: absolute; /* Position du lien du logo de l'en-tête */
+  --header-logo-link-top: -1rem; /* Position verticale du lien du logo de l'en-tête */
+  --header-logo-link-left: 0; /* Position horizontale du lien du logo de l'en-tête */
+}
+
+/* Reset CSS */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box; /* Utilisation de la boîte de modèle border-box pour inclure les bordures et le padding dans la largeur et la hauteur totales des éléments */
+}
+
+html {
+  scroll-behavior: smooth; /* Activation du défilement fluide pour une transition douce entre les sections lors de la navigation */
+  font-size: 62.5%; /* Réglage de la taille de police de base à 10 pixels (pour faciliter les calculs ultérieurs) */
+}
+
+/* Couleur et typographie de base du texte */
+body {
+  color: var(--text-color); /* Utilisation de la variable --text-color pour définir la couleur du texte */
+  font-family: var(--font-family-base); /* Utilisation de la variable --font-family-base pour définir la police de caractères de base */
+  font-size: var(--font-size-medium); /* Utilisation de la variable --font-size-medium pour définir la taille de police moyenne */
+  font-weight: var(--font-weight-regular); /* Utilisation de la variable --font-weight-regular pour définir le poids de police normal */
+  line-height: var(--line-height-base); /* Utilisation de la variable --line-height-base pour définir la hauteur de ligne de base */
+}
+
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-title); /* Utilisation de la variable --font-family-title pour définir la police de caractères des titres */
+  font-weight: var(--font-weight-bold); /* Utilisation de la variable --font-weight-bold pour définir le poids de police gras pour les titres */
+}
+
+/** Liens **/
+
+/* Styles pour les liens non visités */
+a:link {
+  color: var(--text-color); /* Couleur du texte des liens non visités */
+  text-decoration: none; /* Pas de décoration de soulignement pour les liens non visités */
+}
+
+/* Styles pour les liens visités */
+a:visited {
+  font-style: italic; /* Utilisation du style en italique pour les liens visités */
+}
+
+/* Styles au survol des liens */
+a:hover {
+  text-decoration: underline; /* Soulignement des liens au survol de la souris */
+}
+
+/* Styles lorsqu'un lien est activé */
+a:active {
+  background-color: var(--color-light-grey); /* Couleur de fond des liens lorsqu'ils sont activés */
+}
+
+/* Boutons */
+
+/* Styles des boutons */
+.button {
+  display: var(--button-display); /* Affichage du bouton en tant qu'élément en ligne */
+  padding: var(--button-padding); /* Remplissage du bouton */
+  border: var(--button-border); /* Bordure du bouton */
+  font-size: var(--button-font-size); /* Taille de police du bouton */
+  color: var(--button-color); /* Couleur du texte du bouton */
+  text-decoration: var(--button-text-decoration); /* Décoration du texte du bouton */
+}
+
+/* Styles au survol des boutons */
+.button:hover {
+  color: var(--button-hover-color); /* Couleur du texte du bouton au survol de la souris */
+  text-decoration: var(--button-hover-text-decoration); /* Décoration du texte du bouton au survol de la souris */
+  background-color: var(--button-hover-background); /* Couleur de fond du bouton au survol de la souris */
+  transition-duration: var(--transition-duration); /* Durée de transition */
+  transition-property: color, background-color; /* Propriétés de transition */
+}
+
+/* Accessibilité */
+
+/* Classe pour cacher visuellement un élément tout en le rendant accessible aux technologies d'assistance */
+.visually-hidden {
+  display: none;
+}
+
+/* Cartes */
+
+/* Styles pour les catégories de cartes */
+.card-category {
+  color: var(--color-primary); /* Couleur des catégories de cartes */
+}
+
+/* Styles pour les titres des cartes de services */
+.card-services .card-title {
+  margin: 0; /* Marge des titres des cartes de services */
+}
+
+/* Styles pour les liens des cartes de services au survol de la souris */
+.card-services a {
+  display: block; /* Affichage des liens des cartes de services en tant qu'éléments en bloc */
+  padding: 2rem; /* Remplissage des liens des cartes de services */
+  background-color: var(--color-light-grey); /* Couleur de fond des liens des cartes de services */
+}
+
+/* Styles pour les liens des cartes de services au survol de la souris */
+.card-services a:hover {
+  color: var(--color-white); /* Couleur du texte des liens des cartes de services au survol de la souris */
+  background-color: var(--color-primary); /* Couleur de fond des liens des cartes de services au survol de la souris */
+  text-decoration: none; /* Pas de décoration de soulignement pour les liens des cartes de services au survol de la souris */
+}
+
+/* Styles pour l'élément .card-outer à l'intérieur de l'élément .card-work */
+.card-work .card-outer {
+  position: relative; /* Positionnement relatif de l'élément .card-outer */
+  overflow: hidden; /* Masquage du contenu débordant de l'élément .card-outer */
+}
+
+/* Styles pour l'image à l'intérieur de l'élément .card-image dans l'élément .card-work */
+.card-work .card-image img {
+  height: 30rem; /* Hauteur de l'image à l'intérieur de l'élément .card-image */
+  width: 100%; /* Largeur de l'image à l'intérieur de l'élément .card-image */
+  object-fit: cover; /* Mode de redimensionnement de l'image pour couvrir la zone définie */
+  vertical-align: bottom; /* Alignement vertical de l'image à l'intérieur de l'élément .card-image */
+}
+
+/* Styles pour les cartes de travail au survol de la souris */
+.card-work .card-inner {
+  position: absolute; /* Positionnement absolu des cartes de travail */
+  top: -0.1rem; /* Position verticale des cartes de travail */
+  left: -0.1rem; /* Position horizontale des cartes de travail */
+  right: -0.1rem; /* Position horizontale des cartes de travail */
+  z-index: 1; /* Indice de position des cartes de travail */
+  transition: var(--transition-duration) var(--transition-cubic-bezier); /* Transition des cartes de travail */
+}
+
+/* Styles au survol de la souris pour l'élément .card-inner à l'intérieur de l'élément .card-work */
+.card-work:hover .card-inner {
+  background-color: rgba(0, 0, 0, 0.7); /* Couleur de fond des cartes de travail au survol de la souris */
+}
+
+/* Styles pour les titres des cartes de travail */
+.card-work .card-title {
+  text-align: center; /* Alignement des titres des cartes de travail */
+  margin: 0; /* Marge des titres des cartes de travail */
+  opacity: 0; /* Opacité des titres des cartes de travail */
+  height: 100%; /* Hauteur des titres des cartes de travail */
+  position: relative; /* Position des titres des cartes de travail */
+}
+
+/* Styles pour les liens des titres des cartes de travail */
+.card-work .card-title a {
+  display: block; /* Affichage des liens des titres des cartes de travail en tant qu'éléments en bloc */
+  text-decoration: none; /* Pas de décoration de soulignement pour les liens des titres des cartes de travail */
+  padding-top: 45%; /* Remplissage des liens des titres des cartes de travail */
+}
+
+/* Styles pour le contenu additionnel après les liens des titres des cartes de travail */
+.card-work .card-title a::after {
+  content: ""; /* Contenu additionnel après les liens des titres des cartes de travail */
+  position: absolute; /* Positionnement absolu du contenu additionnel après les liens des titres des cartes de travail */
+  top: 0; /* Position verticale du contenu additionnel après les liens des titres des cartes de travail */
+  right: 0; /* Position horizontale du contenu additionnel après les liens des titres des cartes de travail */
+  left: 0; /* Position horizontale du contenu additionnel après les liens des titres des cartes de travail */
+  bottom: 0; /* Position verticale du contenu additionnel après les liens des titres des cartes de travail */
+}
+
+/* Styles au survol de la souris pour les titres des cartes de travail */
+.card-work:hover .card-title {
+  opacity: 1; /* Opacité des titres des cartes de travail au survol de la souris */
+}
+
+/* Styles pour les images des cartes de travail au survol de la souris */
+.card-work:hover .card-image {
+  transform: scale(1.2); /* Mise à l'échelle des images des cartes de travail au survol de la souris */
+  transition: var(--transition-duration) var(--transition-cubic-bezier); /* Transition des images des cartes de travail */
+}
+
+/* Styles au survol de la souris pour l'élément .card-outer à l'intérieur de l'élément .card-work */
+.card-work:hover .card-outer {
+  transform: scale(0.95); /* Réduction de l'échelle de l'élément .card-outer au survol de la souris */
+}
+
+/* Styles pour les cartes de témoignages */
+.card-testimonial {
+  text-align: center; /* Alignement du contenu des cartes de témoignages */
+}
+
+/* Styles pour les avatars des cartes de témoignages */
+.card-testimonial .card-avatar {
+  border-radius: 50%; /* Bordure arrondie pour les avatars des cartes de témoignages */
+  width: 10rem; /* Largeur des avatars des cartes de témoignages */
+  height: 10rem; /* Hauteur des avatars des cartes de témoignages */
+}
+
+/* Styles pour les citations des cartes de témoignages */
+.card-testimonial .card-quote {
+  position: relative; /* Positionnement des citations des cartes de témoignages */
+}
+
+/* Styles pour le contenu additionnel avant les citations des cartes de témoignages */
+.card-testimonial .card-quote::before {
+  content: "\201C"; /* Contenu additionnel avant les citations des cartes de témoignages (guillemets ouvrants) */
+  position: absolute; /* Positionnement absolu du contenu additionnel avant les citations des cartes de témoignages */
+  top: -4.5rem; /* Position verticale du contenu additionnel avant les citations des cartes de témoignages */
+  left: -1rem; /* Position horizontale du contenu additionnel avant les citations des cartes de témoignages */
+  color: #efeded; /* Couleur du contenu additionnel avant les citations des cartes de témoignages */
+  font-size: 10rem; /* Taille de police du contenu additionnel avant les citations des cartes de témoignages */
+  z-index: -1; /* Indice de position du contenu additionnel avant les citations des cartes de témoignages */
+}
+
+/* Styles pour les sources des citations des témoignages */
+.card-testimonial .card-quote cite {
+  display: block; /* Affichage des sources des citations des témoignages en tant qu'éléments en bloc */
+  padding-top: 1rem; /* Remplissage des sources des citations des témoignages */
+  color: var(--color-primary); /* Couleur des sources des citations des témoignages */
+}
+
+/* Thème sombre */
+
+/* Styles pour le thème sombre */
+[data-section-theme="dark"] {
+  --text-color: var(--color-white); /* Couleur du texte en thème sombre */
+  --section-title-color: var(--color-white); /* Couleur du titre de section en thème sombre */
+  background-color: var(--color-black); /* Couleur de fond en thème sombre */
+  --button-color: var(--color-white); /* Couleur du texte des boutons en thème sombre */
+}
+
+/* Section Tagline */
+
+/* Styles pour la section Tagline */
+.section-tagline {
+  color: var(--color-primary); /* Couleur du texte de la section Tagline */
+  font-family: var(--font-family-title); /* Police de caractères de la section Tagline */
+  text-transform: var(--section-tagline-transform); /* Transformation du texte de la section Tagline en majuscules */
+  font-weight: var(--font-weight-bold); /* Poids de police gras pour la section Tagline */
+  margin: var(--section-tagline-margin); /* Marge de la section Tagline */
+}
+
+/* Grille */
+
+/* Styles pour la grille */
+ul.row {
+  margin: 0; /* Marge de la grille */
+  padding: 0; /* Remplissage de la grille */
+  list-style: none; /* Pas de style de liste pour la grille */
+}
+
+/* Styles pour les colonnes dans une grille à 3 colonnes */
+.col-1-3 {
+  width: 33.33%; /* Largeur des colonnes dans une grille à 3 colonnes */
+}
+
+/* Styles pour les colonnes dans une grille à 2 colonnes */
+.col-1-2 {
+  width: 50%; /* Largeur des colonnes dans une grille à 2 colonnes */
+}
+
+/* Style qui cible tous les éléments ayant une classe dont le nom commence par "col-" */
+[class^="col-"] {
+  float: left; /* Alignement à gauche des éléments de la grille */
+  padding: 0.5rem; /* Remplissage des éléments de la grille */
+}
+
+/* Styles pour le contenu additionnel après les éléments de la grille */
+.row::after {
+  content: ""; /* Contenu additionnel après les éléments de la grille */
+  display: table; /* Affichage en tant qu'élément de tableau pour la grille */
+  clear: both; /* Suppression des éléments flottants pour la grille */
+}
+
+/* En-tête */
+
+/* Styles pour l'en-tête */
+.header {
+  padding: var(--header-padding); /* Remplissage de l'en-tête */
+}
+
+/* Styles pour le logo de l'en-tête */
+.header-logo {
+  position: var(--header-logo-position); /* Positionnement du logo de l'en-tête */
+}
+
+/* Styles pour le lien du logo de l'en-tête */
+.header-logo a {
+  display: var(--header-logo-link-display); /* Affichage du lien du logo de l'en-tête en tant qu'élément en ligne */
+  position: var(--header-logo-link-position); /* Positionnement du lien du logo de l'en-tête */
+  top: var(--header-logo-link-top); /* Position verticale du lien du logo de l'en-tête */
+  left: var(--header-logo-link-left); /* Position horizontale du lien du logo de l'en-tête */
+}
+
+/* Conteneur */
+
+/* Styles pour le conteneur */
+.container {
+  width: 960px; /* Largeur du conteneur */
+  margin-left: auto; /* Marge gauche automatique pour centrer le conteneur */
+  margin-right: auto; /* Marge droite automatique pour centrer le conteneur */
+}
+
+/* Sections */
+
+/* Styles pour les sections */
+.section {
+  padding: var(--section-padding); /* Remplissage des sections */
+}
+
+/* Styles pour l'en-tête des sections */
+.section-header {
+  text-align: var(--section-header-align); /* Alignement du titre de section */
+  padding: var(--section-header-padding); /* Remplissage de l'en-tête de section */
+}
+
+/* Styles pour le corps des sections */
+.section-body {
+  padding: var(--section-body-padding); /* Remplissage du corps de section */
+}
+
+/* Styles pour le pied de page des sections */
+.section-footer {
+  padding: var(--section-footer-padding); /* Remplissage du pied de page de section */
+  text-align: var(--section-footer-align); /* Alignement du pied de page de section */
+}
+
+/* Styles pour le titre des sections */
+.section-title {
+  font-family: var(--font-family-title); /* Police de caractères du titre de section */
+  font-size: var(--font-size-xx-large); /* Taille de police très grande pour le titre de section */
+  font-weight: var(--font-weight-bold); /* Poids de police gras pour le titre de section */
+  margin: var(--section-title-margin); /* Marge du titre de section */
+  color: var(--section-title-color); /* Couleur du titre de section */
+}
+
+/* Styles pour la section Hero */
+.section-hero {
+  background-size: 90rem auto; /* Taille d'arrière-plan pour la section Hero */
+}
+
+/* Styles pour le titre de section dans la section Hero */
+.section-hero .section-title {
+  margin-bottom: 5rem; /* Marge inférieure du titre de section dans la section Hero */
+}
+
+/* Styles pour la section intérieure de la section Hero */
+.section-hero .section-inner {
+  padding: 10rem 40rem 2rem 0; /* Remplissage de la section intérieure de la section Hero */
+}
+
+/* Pied de page */
+
+/* Styles pour le pied de page */
+.footer {
+  padding: var(--footer-padding); /* Remplissage du pied de page */
+}
+
+/* Styles pour les droits d'auteur du pied de page */
+.footer-copyright {
+  margin: 0; /* Marge des droits d'auteur du pied de page */
+  font-size: var(--font-size-small); /* Taille de police petite pour les droits d'auteur du pied de page */
+  color: var(--text-color); /* Couleur du texte pour les droits d'auteur du pied de page */
+}
+
+/* Styles pour les listes du pied de page */
+.footer ul {
+  text-align: right; /* Alignement à droite pour les listes du pied de page */
+}
+
+/* Styles pour l'adresse du pied de page */
+.footer-address {
+  color: var(--text-color); /* Couleur du texte pour l'adresse du pied de page */
+}
+
+/* Liens sociaux */
+
+/* Styles pour les liens sociaux */
+.social-link {
+  display: block; /* Affichage des liens sociaux en tant qu'éléments en bloc */
+}
+
+/* Styles pour les icônes des liens sociaux */
+.social-link > svg {
+  fill: var(--text-color); /* Couleur de remplissage pour les icônes des liens sociaux */
+}
+
+/* Navigation */
+
+/* Styles pour le menu de navigation de la barre de navigation */
+.navbar-menu {
+  float: right; /* Alignement à droite pour le menu de navigation de la barre de navigation */
+}
+
+/* Styles pour la liste de navigation */
+.nav {
+  margin: 0; /* Marge de la liste de navigation */
+  padding: 0; /* Remplissage de la liste de navigation */
+  list-style: none; /* Pas de style de liste pour la liste de navigation */
+  text-align: center; /* Alignement central pour la liste de navigation */
+}
+
+/* Styles pour les éléments de la liste de navigation */
+.nav .nav-item {
+  font-family: var(--nav-item-font-family); /* Police de caractères pour les éléments de la liste de navigation */
+  font-weight: var(--nav-item-font-weight); /* Poids de police pour les éléments de la liste de navigation */
+  font-size: var(--nav-item-font-size); /* Taille de police pour les éléments de la liste de navigation */
+  letter-spacing: var(--nav-item-letter-spacing); /* Espacement des lettres pour les éléments de la liste de navigation */
+  display: var(--nav-item-display); /* Affichage des éléments de la liste de navigation */
+  margin: var(--nav-item-margin); /* Marge des éléments de la liste de navigation */
+}
+
+/* Styles pour les liens de la liste de navigation */
+.nav .nav-link {
+  display: block; /* Affichage des liens de la liste de navigation en tant qu'éléments en bloc */
+  padding: 0.5rem 1rem; /* Remplissage des liens de la liste de navigation */
+}
+
+/* Styles au survol des liens de la liste de navigation */
+.nav .nav-link:hover {
+  color: var(--nav-item-link-hover); /* Couleur du texte des liens de la liste de navigation au survol de la souris */
+}
+
+/* Styles avant les liens de la liste de navigation */
+.nav .nav-link::before {
+  content: ""; /* Contenu additionnel avant les liens de la liste de navigation */
+  position: absolute; /* Positionnement absolu du contenu additionnel avant les liens de la liste de navigation */
+  top: 0; /* Position verticale du contenu additionnel avant les liens de la liste de navigation */
+  left: 0; /* Position horizontale du contenu additionnel avant les liens de la liste de navigation */
+  background-color: var(--color-white); /* Couleur de fond du contenu additionnel avant les liens de la liste de navigation */
+  width: 0; /* Largeur initiale du contenu additionnel avant les liens de la liste de navigation */
+  height: 0.2rem; /* Hauteur du contenu additionnel avant les liens de la liste de navigation */
+  transition: var(--transition-duration) var(--transition-cubic-bezier); /* Transition du contenu additionnel avant les liens de la liste de navigation */
+}
+
+/* Styles au survol des éléments de la liste de navigation */
+.nav .nav-item:hover .nav-link::before {
+  background-color: var(--color-primary); /* Couleur de fond du contenu additionnel avant les liens de la liste de navigation au survol de la souris */
+  width: 100%; /* Largeur maximale du contenu additionnel avant les liens de la liste de navigation au survol de la souris */
+}
