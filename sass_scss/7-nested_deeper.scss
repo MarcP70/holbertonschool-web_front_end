@@ -1,0 +1,10 @@
+/* assign font size with nested declaration */
+body {
+    font-size: 14px;
+    h1 {
+        font-size: 16px;
+    }
+    h1.smaller {
+        font-size: 12px;
+    }
+}
