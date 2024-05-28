@@ -1,0 +1,17 @@
+/* Import the colors from 10-colors.scss */
+@import '10-colors';
+
+/* Assign text color to the .red class */
+.red {
+  color: $red;
+}
+
+/* Assign text color to the .green class */
+.green {
+  color: $green;
+}
+
+/* Assign text color to the .blue class */
+.blue {
+  color: $blue;
+}
