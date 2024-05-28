@@ -1,0 +1,7 @@
+/* assign class .red to the first children of the body with nested declarations */
+body {
+    color: #3d3d3d;
+    > .red {
+        color: #ff0000;
+    }
+}
