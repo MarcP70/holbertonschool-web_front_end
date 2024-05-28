@@ -1,0 +1,15 @@
+/* define a mixin for setting left and right margins */
+@mixin margin-lr($value) {
+  margin-left: $value;
+  margin-right: $value;
+}
+
+/* Apply the mixin to the body with 10px margin */
+body {
+  @include margin-lr(10px);
+}
+
+// Apply the mixin to div with 15px margin
+div {
+  @include margin-lr(15px);
+}
