@@ -1,0 +1,16 @@
+/* Define the .info class with font size 12px */
+.info {
+  font-size: 12px;
+}
+
+/* Extend .info and set text color for .success */
+.success {
+  @extend .info;
+  color: #00FF00;
+}
+
+/* Extend .info and set text color for .warning */
+.warning {
+  @extend .info;
+  color: #FF0000;
+}
