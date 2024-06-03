@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Task 5</title>
+        <!-- Load the latest version of jQuery using the Slim & minified version from the CDN -->
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+            integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+            crossorigin="anonymous">
+        </script>
+        <script type="application/javascript">
+            function createFamilyTree() {
+                // Create the table element
+                $('body').append(
+                    $('<table>').append(
+                        // Create the header row
+                        $('<thead>').append(
+                            $('<tr>').append(
+                                $('<th>').text('Firstname'),
+                                $('<th>').text('Lastname')
+                            )
+                        ),
+                        // Create the body of the table
+                        $('<tbody>').append()
+                    )
+                );
+            }
+
+            function addNewMember(firstName, lastName) {
+                // Append a new row to the table body
+                $('tbody').append(
+                    $('<tr>').append(
+                    // Create cells for firstname and lastname
+                    $('<td>').text(firstName),
+                    $('<td>').text(lastName),
+                    // Create a delete cell with (x)
+                    $('<td>').text('(x)').css({
+                        backgroundColor: 'orange',
+                        cursor: 'pointer'
+                    }).click(function() {
+                        // On click, remove the entire row
+                        $(this).parent('tr').remove();
+                    })
+                    )
+                );
+            }
+
+            // Call the createFamilyTree function
+            $(document).ready(function() {
+                createFamilyTree();
+                // Generate fake table with members
+                addNewMember('Guillaume', 'Salva');
+                addNewMember('Arielle', 'Snizt');
+                addNewMember('Fanette', 'Snizt');
+                addNewMember('Gerard', 'Snizt');
+                addNewMember('Victor', 'Salva');
+            });
+        </script>
+
+    </head>
+
+    <body>
+
+    </body>
+
+</html>
