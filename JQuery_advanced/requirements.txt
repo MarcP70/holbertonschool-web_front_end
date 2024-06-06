@@ -1,0 +1,8 @@
+node installed
+npm installed
+
+// install server to launch the JSON file
+sudo npm install -g json-server
+
+// Start the server with JSON file
+json-server --watch db.json
