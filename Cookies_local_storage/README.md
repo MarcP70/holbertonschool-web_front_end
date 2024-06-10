@@ -80,8 +80,14 @@ mandatory
 
 **Install your development environment:**
 
-*   Install`webpack-dev-server` by running `npm install webpack-dev-server --save-dev` (if you have some errors of missing dependencies, install these packages: `npm i -D webpack` and `npm i -D webpack-cli`)
+*   Install webpack-dev-server and Dependencies:
+    *   `npm install webpack-dev-server --save-dev`
+    *   `npm install webpack webpack-cli --save-dev`
 *   Create an empty file `src/index.js`
+*   Run the Server:
+    *   `./node_modules/.bin/webpack-dev-server`
+
+
 *   Run your server with `node_modules/.bin/webpack-dev-server`
 
 **In a file `0-index.html`, create a basic html template:**
